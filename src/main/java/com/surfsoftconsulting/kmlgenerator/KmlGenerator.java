@@ -15,7 +15,7 @@ public class KmlGenerator {
         Configuration configuration = new ConfigurationFactory().createConfiguration();
         Map root = new DataModelFactory().createDataModel();
 
-        Template temp = configuration.getTemplate("kml-file.ftlh");
+        Template temp = configuration.getTemplate("kml-template.ftlh");
 
         Writer out = new OutputStreamWriter(new FileOutputStream("visit-seattle.kml"));
         temp.process(root, out);
