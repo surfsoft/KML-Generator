@@ -22,7 +22,7 @@ class CoordinateReader {
 
         for (String[] line: coordinates) {
             if (buffer.length() > 0) {
-                buffer.append(",\n");
+                buffer.append("\n");
             }
             buffer.append(String.join(",", line[4], line[3], "0"));
         }
