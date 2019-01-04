@@ -4,17 +4,19 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-class RaceFactory {
+class RaceDataModelFactory {
 
     private final int legNo;
     private final int raceNo;
     private final int maxRaceNo;
+    private final String title;
     private final String description;
 
-    RaceFactory(int legNo, int raceNo, int maxRaceNo, String description) {
+    RaceDataModelFactory(int legNo, int raceNo, int maxRaceNo, String title, String description) {
         this.legNo = legNo;
         this.raceNo = raceNo;
         this.maxRaceNo = maxRaceNo;
+        this.title = title;
         this.description = description;
     }
 
@@ -22,14 +24,11 @@ class RaceFactory {
 
         Map<Object, Object> dataModel = new HashMap<>();
 
-        final String title;
         final String filename;
         if (maxRaceNo == 1) {
-            title = String.format("Leg %s", legNo);
             filename = String.format("/leg-%s.csv", legNo);
         }
         else {
-            title = String.format("Leg %s race %s", legNo, raceNo);
             filename = String.format("/leg-%s-race-%s.csv", legNo, raceNo);
         }
         CoordinateReader coordinateReader = new CoordinateReader(filename);
@@ -38,9 +37,6 @@ class RaceFactory {
         dataModel.put("coordinates", coordinateReader.getCoordinates());
         dataModel.put("longitude", coordinateReader.getLongitude());
         dataModel.put("latitude", coordinateReader.getLatitude());
-
-
-        // TODO add 'lookat' and line string
 
         return dataModel;
 

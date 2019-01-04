@@ -1,30 +1,22 @@
 package com.surfsoftconsulting.kmlgenerator;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import static java.util.Arrays.asList;
+import static java.util.Collections.singletonList;
 
 class LegFactory {
 
-    private final int legNo;
-    private final String description;
-    private final List<Map<Object, Object>> races;
+    List<LegMetadata> createLegs() {
 
-    LegFactory(int legNo, String description, List<Map<Object, Object>> races) {
-        this.legNo = legNo;
-        this.description = description;
-        this.races = races;
+        return asList(
+                new LegMetadata(5, "Leg 5", "Australia to China", asList(
+                        new RaceMetadata(1, "Race 1", "Airlie Beach, Australia to Sanya, China"),
+                        new RaceMetadata(2, "Race 2", "Sanya, China to Qingdao, China"))),
+                new LegMetadata(6, "Leg 6", "China to the USA",
+                        singletonList(new RaceMetadata(1, "Race 1", "Qingdao, China to Seattle, USA")))
+        );
     }
 
-    Map<Object, Object> createLeg() {
-
-        Map<Object, Object> dataModel = new HashMap<>();
-
-        dataModel.put("title", String.format("Leg %s", legNo));
-        dataModel.put("description", description);
-        dataModel.put("races", races);
-
-        return dataModel;
-    }
 
 }
