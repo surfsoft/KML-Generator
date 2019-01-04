@@ -1,23 +1,20 @@
 package com.surfsoftconsulting.kmlgenerator;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 class RaceDataModelFactory {
 
-    Map<Object, Object> createRace(LegMetadata legMetadata, RaceMetadata raceMetadata) throws IOException {
+    private final CoordinateReader coordinateReader;
+
+    RaceDataModelFactory(CoordinateReader coordinateReader) {
+        this.coordinateReader = coordinateReader;
+    }
+
+    Map<Object, Object> createRace(RaceMetadata raceMetadata) {
 
         Map<Object, Object> dataModel = new HashMap<>();
 
-        final String filename;
-        if (legMetadata.getRaces().size() == 1) {
-            filename = String.format("/leg-%s.csv", legMetadata.getLegNo());
-        }
-        else {
-            filename = String.format("/leg-%s-race-%s.csv", legMetadata.getLegNo(), raceMetadata.getRaceNo());
-        }
-        CoordinateReader coordinateReader = new CoordinateReader(filename);
         dataModel.put("title", raceMetadata.getTitle());
         dataModel.put("description", raceMetadata.getDescription());
         dataModel.put("coordinates", coordinateReader.getCoordinates(raceMetadata.getRaceStartTime(), raceMetadata.getRaceFinishTime()));

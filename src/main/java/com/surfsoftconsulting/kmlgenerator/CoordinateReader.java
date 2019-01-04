@@ -21,10 +21,24 @@ class CoordinateReader {
     private final List<String[]> coordinates;
     private final List<LocalDateTime> timestamps = new ArrayList<>();
 
-    CoordinateReader(String filename) throws IOException {
+    CoordinateReader(String filename) {
 
         InputStream resourceAsStream = getClass().getResourceAsStream(filename);
-        coordinates = new CSVReader(new InputStreamReader(resourceAsStream)).readAll();
+        try {
+            coordinates = new CSVReader(new InputStreamReader(resourceAsStream)).readAll();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        int index = 0;
+        while (index < coordinates.size()) {
+            if (!coordinates.get(index)[15].equalsIgnoreCase("routine position")) {
+                coordinates.remove(index);
+            }
+            else {
+                index++;
+            }
+        }
 
         for (String[] line: coordinates) {
             timestamps.add(LocalDateTime.parse(line[1], TIMESTAMP_FORMAT));
