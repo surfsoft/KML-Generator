@@ -8,6 +8,7 @@ import static java.util.stream.Collectors.toList;
 class DataModelFactory {
 
     private final LegFactory legFactory = new LegFactory();
+    private final RaceDataModelFactory raceDataModelFactory = new RaceDataModelFactory();
 
     Map<Object, Object> createDataModel() {
 
@@ -25,7 +26,7 @@ class DataModelFactory {
 
         List<Map<Object, Object>> races = legMetadata.getRaces().stream().map(r -> {
             try {
-                return createRaceDataModel(legMetadata, r);
+                return raceDataModelFactory.createRace(legMetadata, r);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -33,10 +34,6 @@ class DataModelFactory {
 
         return new LegDataModelFactory(legMetadata.getTitle(), legMetadata.getDescription(), races).createLeg();
 
-    }
-
-    private Map<Object, Object> createRaceDataModel(LegMetadata legMetadata, RaceMetadata raceMetadata) throws IOException {
-        return new RaceDataModelFactory(legMetadata.getLegNo(), raceMetadata.getRaceNo(), legMetadata.getRaces().size(), raceMetadata.getTitle(), raceMetadata.getDescription()).createRace();
     }
 
 }

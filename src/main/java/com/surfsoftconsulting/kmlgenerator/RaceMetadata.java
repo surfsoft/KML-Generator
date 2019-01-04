@@ -34,4 +34,12 @@ class RaceMetadata {
         return String.format("This race departed %s on %s and arrived at %s on %s", departing, raceStartTime.format(DATE_FORMATTER), arriving, raceFinishTime.format(DATE_FORMATTER));
     }
 
+    LocalDateTime getRaceStartTime() {
+        return raceStartTime;
+    }
+
+    LocalDateTime getRaceFinishTime() {
+        return raceFinishTime;
+    }
+
 }
