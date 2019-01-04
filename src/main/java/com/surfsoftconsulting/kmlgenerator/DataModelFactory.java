@@ -15,8 +15,8 @@ class DataModelFactory {
 
         Map<Object, Object> dataModel = new HashMap<>();
 
-        dataModel.put("documentTitle", "Visit Seattle Legs 5 and 6");
-        dataModel.put("documentDescription", "The routes sailed by Visit Seattle (CV26) on legs 5 and 6 of the 17/18 Clipper Round The World race");
+        dataModel.put("documentTitle", "Clipper Round the World 17/18 - Visit Seattle GPS track");
+        dataModel.put("documentDescription", "The routes sailed by Visit Seattle (CV26) on the 17/18 Clipper Round The World race. Note that dates shown are UTC and not localised (hence the Sydney-Hobart race has a start date of December 25th 2017");
         dataModel.put("legs", legFactory.createLegs().stream().map(this::createLegDataModel).collect(toList()));
 
         return dataModel;

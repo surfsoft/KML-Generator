@@ -96,47 +96,40 @@
           </PolyStyle>
         </Style>
 
-        <Folder>
-            <name>Legs</name>
-            <visibility>0</visibility>
-            <description>The legs included in this file</description>
+        <#list legs as leg>
 
-            <#list legs as leg>
+            <Folder>
+                <name>${leg.title}</name>
+                <visibility>0</visibility>
+                <description>${leg.description}</description>
 
-                <Folder>
-                    <name>${leg.title}</name>
+                <#list leg.races as race>
+
+                <Placemark>
+                    <name>${race.title}</name>
                     <visibility>0</visibility>
-                    <description>${leg.description}</description>
+                    <description>${race.description}</description>
+                    <LookAt>
+                        <longitude>${race.longitude}</longitude>
+                        <latitude>${race.latitude}</latitude>
+                        <altitude>0</altitude>
+                        <heading>0</heading>
+                        <tilt>0</tilt>
+                        <range>1000</range>
+                    </LookAt>
+                    <LineString>
+                        <altitudeMode>absolute</altitudeMode>
+                        <extrude>0</extrude>
+                        <tessellate>0</tessellate>
+                        <coordinates> ${race.coordinates} </coordinates>
+                    </LineString>
+                </Placemark>
 
-                    <#list leg.races as race>
+                </#list>
 
-                    <Placemark>
-                        <name>${race.title}</name>
-                        <visibility>0</visibility>
-                        <description>${race.description}</description>
-                        <LookAt>
-                            <longitude>${race.longitude}</longitude>
-                            <latitude>${race.latitude}</latitude>
-                            <altitude>0</altitude>
-                            <heading>0</heading>
-                            <tilt>0</tilt>
-                            <range>1000</range>
-                        </LookAt>
-                        <LineString>
-                            <altitudeMode>absolute</altitudeMode>
-                            <extrude>0</extrude>
-                            <tessellate>0</tessellate>
-                            <coordinates> ${race.coordinates} </coordinates>
-                        </LineString>
-                    </Placemark>
+            </Folder>
 
-                    </#list>
-
-                </Folder>
-
-            </#list>
-
-        </Folder>
+        </#list>
 
     </Document>
 

@@ -45,30 +45,27 @@ class LegFactory {
     List<LegMetadata> createLegs() {
 
         return asList(
-                new LegMetadata(1, "Leg 1", "UK to Uruguay",
-                        singletonList(new RaceMetadata(1, "Race 1", "Liverpool, Great Britain", "Punta del Este, Uruguay", LEG_1_START, LEG_1_FINISH))),
-                new LegMetadata(2, "Leg 2", "Uruguay to South Africa",
-                        singletonList(new RaceMetadata(1, "Race 1", "Punta del Este, Uruguay", "Cape Town, South Africa", LEG_2_START, LEG_2_FINISH))),
-                new LegMetadata(3, "Leg 3", "South Africa to Australia",
-                        singletonList(new RaceMetadata(1, "Race 1", "Cape Town, South Africa", "Fremantle, Australia", LEG_3_START, LEG_3_FINISH))),
-                new LegMetadata(4, "Leg 4", "The All-Australia Leg", asList(
+                new LegMetadata(1, "Leg 1 - The Atlantic Trade Winds", "UK to Uruguay",
+                        singletonList(new RaceMetadata(1, "Liverpool to Punta del Este", "Liverpool, Great Britain", "Punta del Este, Uruguay", LEG_1_START, LEG_1_FINISH))),
+                new LegMetadata(2, "Leg 2 - The South Atlantic Challenge", "Uruguay to South Africa",
+                        singletonList(new RaceMetadata(1, "Punta del Este to Cape Town", "Punta del Este, Uruguay", "Cape Town, South Africa", LEG_2_START, LEG_2_FINISH))),
+                new LegMetadata(3, "Leg 3 - The Southern Ocean", "South Africa to Australia",
+                        singletonList(new RaceMetadata(1, "Cape Town to Fremantle", "Cape Town, South Africa", "Fremantle, Australia", LEG_3_START, LEG_3_FINISH))),
+                new LegMetadata(4, "Leg 4 - The Australian Coast to Coast", "The All-Australia Leg", asList(
                         new RaceMetadata(1, "Race 1", "Fremantle, Australia", "Sydney, Australia", LEG_4_RACE_1_START, LEG_4_RACE_1_FINISH),
                         new RaceMetadata(2, "Race 2", "Sydney, Australia", "Hobart, Australia", LEG_4_RACE_2_START, LEG_4_RACE_2_FINISH),
                         new RaceMetadata(3, "Race 3", "Hobart, Australia", "Airlie Beach, Australia", LEG_4_RACE_3_START, LEG_4_RACE_3_FINISH))),
-                new LegMetadata(5, "Leg 5", "Australia to China", asList(
+                new LegMetadata(5, "Leg 5 - The Asia Pacific Challenge", "Australia to China", asList(
                         new RaceMetadata(1, "Race 1", "Airlie Beach, Australia", "Sanya, China", LEG_5_RACE_1_START, LEG_5_RACE_1_FINISH),
                         new RaceMetadata(2, "Race 2", "Sanya, China", "Qingdao, China", LEG_5_RACE_2_START, LEG_5_RACE_2_FINISH))),
-                new LegMetadata(6, "Leg 6", "China to the USA",
-                        singletonList(new RaceMetadata(1, "Race 1", "Qingdao, China", "Seattle, USA", LEG_6_START, LEG_6_FINISH))),
-
-
-                new LegMetadata(7, "Leg 7", "The All-American Leg", asList(
+                new LegMetadata(6, "Leg 6 - The Mighty Pacific", "China to the USA",
+                        singletonList(new RaceMetadata(1, "Qingdao to Seattle", "Qingdao, China", "Seattle, USA", LEG_6_START, LEG_6_FINISH))),
+                new LegMetadata(7, "Leg 7 - The US Coast to Coast", "The All-American Leg", asList(
                         new RaceMetadata(1, "Race 1", "Seattle, USA", "Panama City, Panama", LEG_7_RACE_1_START, LEG_7_RACE_1_FINISH),
                         new RaceMetadata(2, "Race 2", "Colón, Panama", "New York, USA", LEG_7_RACE_2_START, LEG_7_RACE_2_FINISH))),
-
-                new LegMetadata(8, "Leg 8", "USA to UK", asList(
-                        new RaceMetadata(1, "Race 1", "New York USA", "Derry, Norther Ireland", LEG_8_RACE_1_START, LEG_8_RACE_1_FINISH),
-                        new RaceMetadata(2, "Race 2", "Derry, Northern Ireland", "Liverpool, Great Britain", LEG_8_RACE_2_START, LEG_8_RACE_2_FINISH)))
+                new LegMetadata(8, "Leg 8 - The Atlantic Homecoming", "USA to UK", asList(
+                        new RaceMetadata(1, "Race 1", "New York USA", "Derry-Londonderry, Norther Ireland", LEG_8_RACE_1_START, LEG_8_RACE_1_FINISH),
+                        new RaceMetadata(2, "Race 2", "Derry-Londonderry, Northern Ireland", "Liverpool, Great Britain", LEG_8_RACE_2_START, LEG_8_RACE_2_FINISH)))
         );
     }
 
